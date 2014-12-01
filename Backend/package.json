@@ -1,0 +1,21 @@
+{
+  "name": "zephir",
+  "version": "0.0.0",
+  "description": "The backend of the zephir portal (read-only to babar database).",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log(\"Hello, world! I'm Zephir.\");"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:babar-dev/zephir.git"
+  },
+  "author": "Dryvenn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/babar-dev/zephir/issues"
+  },
+  "dependencies": {
+    "http": "0.0.0"
+  }
+}
