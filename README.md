@@ -1,6 +1,8 @@
+![Zephir](https://github.com/babar-dev/zephir/blob/master/Frontend/src/assets/zephir.jpg)
+
 # Goals
-Allow the customer to :
-_ Provide his email address;
-_ Upload a photo;
-_ View his stats;
-_ Protect his datas with a password.
+Allow a customer to :
+- Provide his email address;
+- Upload a photo;
+- View his stats;
+- Protect his datas with a password.
