@@ -6,4 +6,3 @@ Allow a customer to :
 - Protect his datas with a password.
 
 ![Zephir](https://github.com/babar-dev/zephir/blob/master/Frontend/src/assets/zephir.jpg)
-

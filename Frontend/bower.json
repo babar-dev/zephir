@@ -1,6 +1,6 @@
 {
-  "name": "zephir",
-  "version": "0.0.1",
+  "name": "ng-boilerplate",
+  "version": "0.3.2",
   "devDependencies": {
     "angular": "~1.2",
     "angular-mocks": "~1.2",
