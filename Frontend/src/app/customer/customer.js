@@ -5,8 +5,7 @@ angular.module('zephir.customer', [])
   // TODO: load details, balance, status
 
   this.debug = function() {
-
-    console.log("debug");
+    console.log(this.isCompleted);
   };
   
   
@@ -21,7 +20,7 @@ angular.module('zephir.customer', [])
     balance: "42"
   };
 
-  this.isCompleted = this.customer.email !== "" && this.customer.password !== "";
+  this.isCompleted = false;//this.customer.email !== "" && this.customer.password !== "";
 
   this.writing = function() {
     console.log("writing");
