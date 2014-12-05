@@ -10,6 +10,7 @@ var customers = [
 ];
 
 angular.module('zephir.home', [
+  'zephir.customer',
   'autocomplete'
 ])
 
@@ -29,7 +30,7 @@ angular.module('zephir.home', [
         selected = val;
       }      
     });
-    $state.go("customer", {id:parseInt(selected.id, 10)});
+    $state.go("home.customer", {id:parseInt(selected.id, 10)});
   };
 
 });

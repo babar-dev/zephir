@@ -1,0 +1,39 @@
+<div class="col-md-4 col-xs-12">
+
+  <div class="profile">
+    <img
+       src="../assets/zephir.jpg"
+       ng-click="ctm.debug()"
+       />
+
+    <div class="info">
+      <span><strong>Firstname: </strong>{{ctm.customer.firstname}}</span>
+      <span><strong>Nickname: </strong>{{ctm.customer.nickname}}</span>
+      <span><strong>Lastname: </strong>{{ctm.customer.lastname}}</span>
+      <span><strong>Email: </strong>{{ctm.customer.email}}</span>
+      <span><strong>Password: </strong>
+	<em>
+	  {{ctm.customer.password !== "" ? "provided" : "not provided"}}
+	</em>
+      </span>
+      <span><strong>Status: </strong>{{ctm.customer.status}}</span>
+      <span><strong>Balance: </strong>{{ctm.customer.balance}}€</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- This is either blank or stats -->
+<div class="col-md-8 col-xs-12">
+  <div class="stats">
+    <ui-view
+	 ng-show="isCompleted"
+	 >
+      </ui-view>
+      <i
+	 class="fa fa-lock fa-5x"
+	 ng-hide="isCompleted"
+	 >
+      </i>
+  </div>
+</div>

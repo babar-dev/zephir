@@ -12,9 +12,9 @@ express()
 .use(express.static(_topdir))
 .use(favicon(_topdir + '/assets/zephir.ico'))
 // see http://expressjs.com/resources/middleware.html for more tools
-.use(function(req, res , next) {
+/*.use(function(req, res , next) {
   console.log("Yielding Zephir !");
   res.end();
 })
-
+*/
 .listen(8080);

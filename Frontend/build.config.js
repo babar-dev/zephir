@@ -70,6 +70,7 @@ module.exports = {
       'vendor/allmighty-autocomplete/script/autocomplete.js'
     ],
     css: [
+      
     ],
     assets: [
     ]

@@ -16,18 +16,18 @@ angular.module( 'zephir', [
     controller: "HomeCtrl",
     controllerAs: "home"
   }).state('home.customer', {
-    url: "/customer:id",
+    url: "customer/:id/",
     templateUrl: "customer/customer.tpl.html",
     controller: "CustomerCtrl",
     controllerAs: "ctm"
   }).state('home.customer.stats', {
-    url: "/stats",
+    url: "stats",
     templateUrl: "stats/stats.tpl.html",
     controller: "StatsCtrl",
     controllerAs: "stat"
   })
   .state('home.customer.settings', {
-    url: "/settings",
+    url: "settings",
     templateUrl: "settings/settings.tpl.html",
     controller: "SettingsCtrl",
     controllerAs: "setg"
