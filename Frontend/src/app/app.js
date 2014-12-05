@@ -1,7 +1,10 @@
 angular.module( 'zephir', [
   'templates-app',
   'templates-common',
-  'ui.router'
+  'ui.router',
+  'zephir.home',
+  'zephir.settings',
+  'zephir.stats'
 ])
 
 .config(function AppConfig ($stateProvider, $urlRouterProvider) {
@@ -12,13 +15,18 @@ angular.module( 'zephir', [
     templateUrl: "home/home.tpl.html",
     controller: "HomeCtrl",
     controllerAs: "home"
-  }).state('home.stats', {
+  }).state('home.customer', {
+    url: "/customer:id",
+    templateUrl: "customer/customer.tpl.html",
+    controller: "CustomerCtrl",
+    controllerAs: "ctm"
+  }).state('home.customer.stats', {
     url: "/stats",
     templateUrl: "stats/stats.tpl.html",
     controller: "StatsCtrl",
     controllerAs: "stat"
   })
-  .state('home.settings', {
+  .state('home.customer.settings', {
     url: "/settings",
     templateUrl: "settings/settings.tpl.html",
     controller: "SettingsCtrl",
