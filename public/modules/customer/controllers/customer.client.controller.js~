@@ -1,0 +1,8 @@
+'use strict';
+
+angular.module('customer').controller('CustomerController', ['$scope',
+	function($scope) {
+		// Customer controller logic
+		// ...
+	}
+]);
