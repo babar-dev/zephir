@@ -2,7 +2,7 @@
 
 angular.module('customer')
 .controller('CustomerController',
-            function CustomerController ($scope, Server, Encode, Decode) {
+            function CustomerController ($rootScope, $scope, $modal, Server, Encode, Decode) {
               
               // TODO: load details, balance, status
               this.customer = {};
@@ -29,20 +29,51 @@ angular.module('customer')
                 });
               });
 
-              this.isCompleted = false;//this.customer.email !== '' && this.customer.password !== '';
-/*
+              this.isCompleted = this.customer.email !== '' && this.customer.password !== '';
+
+              
+
+              // This allow to complete one's info.
               this.complete = function() {
-var dialog = ngServer.open({
-                  template: 'customer/register.tpl.html',
-                  controller: 'RegisterCtrl',
-                  controllerAs: 'reg',
-                  className: 'ngdialog-theme-plain',
-                  showClose: true,
-                  closeByDocument: true,
-                  closeByEscape: true
+                var modal = $modal.open({
+                  templateUrl: 'modules/customer/views/register.client.view.html',
+                  controller: function($scope) {
+                    $scope.register = {
+                      message: '',
+                      email: '',
+                      password1: '',
+                      password2: '',
+                      passwdValidity: function() {
+                        return
+                      }
+                    };
+                    $scope.submit = function() {
+                      if($scope.register.password1 !== $scope.register.password2 || $scope.register.password1.length < 6) {
+                        $scope.form.password1.$setValidity('1validity', false);
+                        $scope.form.password2.$setValidity('2validity', false);
+                        $scope.register.message = 'The passwords must match and count at least 6 characters.';
+                      }
+                      else{
+                        $scope.form.password1.$setValidity('1validity', true);
+                        $scope.form.password2.$setValidity('2validity', true);
+                        
+                        if(!$scope.form.email.$valid){
+                          $scope.register.message = 'Invalid email. Please note that a confirmation will be sent to you.'
+                        }
+                        else {
+                          $scope.$close($scope.register);
+                        }
+                      }
+                    };
+                  }
                 });
-                dialog.closePromise.then(function(promised) {
-                  console.log(promised);
+                modal.result.then(function(promised) {
+                  var email = promised.email;
+                  var password = promised.password1;
+                  // TODO: POST
                 });
-              };*/
+                };
+
+
+
             });
