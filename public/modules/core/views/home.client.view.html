@@ -1,4 +1,4 @@
-<section data-ng-controller="HomeController">
+<section>
   <div class="row search-bar">
     <!-- some space around the search bar -->
     <div class="col-md-2 col-xs-1"></div>
@@ -28,6 +28,6 @@
     <div
        class="visible-md-* visible-lg-* an-image"
        ng-show="state == 'home'">
-      <img src="modules/core/img/zephir.jpg"></img>
+      <img src="modules/core/img/zephir.jpg" ng-click="home.debug()"></img>
     </div>
 </section>

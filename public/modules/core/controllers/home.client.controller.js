@@ -19,6 +19,7 @@ angular.module('core')
 	      // This provides Authentication context.
 	      $scope.authentication = Authentication;
               this.debug = function() {
+                console.log('debug');
               };
               this.selected = [];
               this.allCustomers = customers;
