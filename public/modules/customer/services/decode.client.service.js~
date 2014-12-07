@@ -1,0 +1,15 @@
+'use strict';
+
+angular.module('customer').factory('Decode', [
+	function() {
+		// Decode service logic
+		// ...
+
+		// Public API
+		return {
+			someMethod: function() {
+				return true;
+			}
+		};
+	}
+]);
