@@ -67,10 +67,13 @@ module.exports = {
       'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
       'vendor/angular-ui-router/release/angular-ui-router.js',
       'vendor/angular-ui-utils/modules/route/route.js',
-      'vendor/allmighty-autocomplete/script/autocomplete.js'
+      'vendor/angular-ui-select/dist/select.js',
+      'vendor/ngDialog/js/ngDialog.js' 
     ],
     css: [
-      
+      'vendor/ngDialog/css/ngDialog.min.css',
+      'vendor/ngDialog/css/ngDialog-theme-default.min.css',
+      'vendor/angular-ui-select/dist/select.css'
     ],
     assets: [
     ]

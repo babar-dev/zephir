@@ -3,6 +3,7 @@ angular.module( 'zephir', [
   'templates-common',
   'ui.router',
   'zephir.home',
+  'zephir.customer',
   'zephir.settings',
   'zephir.stats'
 ])
@@ -32,6 +33,7 @@ angular.module( 'zephir', [
     controller: "SettingsCtrl",
     controllerAs: "setg"
   });
+  
 })
 
 .run(function AppRun () {

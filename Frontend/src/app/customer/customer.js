@@ -1,29 +1,51 @@
-angular.module('zephir.customer', [])
+angular.module('zephir.customer', [
+    'ngDialog',
+    'zephir.server',
+    'zephir.register'
+])
 
-.controller('CustomerCtrl', function CustomerCtrl() {
+    .controller('CustomerCtrl', function CustomerCtrl($scope, ngDialog, Server, Decode) {
+        // TODO: load details, balance, status
+        this.customer = {};
+        Server.get('customer', 3).then(function(promised) {
+            $scope.ctm.customer = Decode.customer(promised.data);
+	    Server.get('status', $scope.ctm.customer.statusId).then(function(promised) {
+		switch(promised.data.name) {
+		case 'barkeeper':
+		    $scope.ctm.customer.status = "Chef de Bar";
+		    break;
+		case 'barman':
+		    $scope.ctm.customer.status = "Barman";
+                    break;
+		case 'VIP':
+		    $scope.ctm.customer.status = "VIP";
+                    break;
+		default:
+		    $scope.ctm.customer.status = "Client";
+                    break;
+		}
+	    });
+	    Server.get('customer', $scope.ctm.customer.id, 'balance').then(function(promised) {
+		$scope.ctm.customer.balance = promised.data.balance;
+            });
+        });
 
-  // TODO: load details, balance, status
+        this.isCompleted = false;//this.customer.email !== "" && this.customer.password !== "";
+        
+        this.complete = function() {
+            var dialog = ngDialog.open({
+                template: 'customer/register.tpl.html',
+		controller: 'RegisterCtrl',
+		controllerAs: 'reg',
+                className: 'ngdialog-theme-plain',
+                showClose: true,
+                closeByDocument: true,
+                closeByEscape: true
+            });
+            dialog.closePromise.then(function(promised) {
+                console.log(promised);
+            });
+        };
 
-  this.debug = function() {
-    console.log(this.isCompleted);
-  };
-  
-  
-  this.customer = {
-    name: "James (jim) Gordon",
-    firstname: "James",
-    lastname: "Gordon",
-    nickname: "jim",
-    email: "jim@gotham.city",
-    password: "batman's coming bitch",
-    status: "Chef de bar",
-    balance: "42"
-  };
 
-  this.isCompleted = false;//this.customer.email !== "" && this.customer.password !== "";
-
-  this.writing = function() {
-    console.log("writing");
-  };
-
-});
+    });

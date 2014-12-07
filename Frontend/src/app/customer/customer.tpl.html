@@ -3,8 +3,7 @@
   <div class="profile">
     <img
        src="../assets/zephir.jpg"
-       ng-click="ctm.debug()"
-       />
+       ng-click="ctm.debug()"/>
 
     <div class="info">
       <span><strong>Firstname: </strong>{{ctm.customer.firstname}}</span>
@@ -33,6 +32,7 @@
       <i
 	 class="fa fa-lock fa-5x"
 	 ng-hide="ctm.isCompleted"
+	 ng-click="ctm.complete()"
 	 >
       </i>
   </div>

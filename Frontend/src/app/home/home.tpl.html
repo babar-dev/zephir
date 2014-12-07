@@ -1,21 +1,34 @@
 <div class="container-fluid">
 
-  <div class="row searchBar">
+  <div class="row search-bar">
     <!-- some space around the search bar -->
     <div class="col-md-2 col-xs-1"></div>
     <div class="col-md-8 col-xs-10">
-      <autocomplete
-	 data="home.customers"
-	 ng-model="this.keyword"
-	 attr-placeholder="Type in a name and hit ENTER !"
-	 attr-input-class="form-control search-input"
-	 on-select="home.select"
-	 >
-      </autocomplete>
+      <ui-select
+         theme="bootstrap"
+         ng-model="home.selected"
+	 reset-search-input="false"
+	 on-select="home.select($item)"
+	 class="search-input">
+        <ui-select-match
+           placeholder="Type in your name and hit ENTER.">
+	  {{$select.selected.name}}
+        </ui-select-match>
+        <ui-select-choices
+           repeat="customer in home.allCustomers">
+          <div ng-bind="customer.name"></div>
+        </ui-select-choices>
+      </ui-select>
+      
     </div>
     <!-- some space around the search bar -->
     <div class="col-md-2 col-xs-1"></div>
   </div>
   <!-- This is the info part once someone's selected -->
-  <div class="row content" ui-view></div>
+  <div class="row content" ui-view>
+    <div
+       class="visible-md-* visible-lg-* an-image"
+       ng-show="state == 'home'">
+      <img src="../assets/zephir.jpg"></img>
+    </div>
 </div>
