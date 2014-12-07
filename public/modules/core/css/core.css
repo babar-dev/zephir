@@ -1,15 +1,24 @@
+.container-fluid {
+    height: 100%;
+    width: 100%;
+}
+
+search-bar {
+    height: 10%;
+}
+.search-input {
+    width: 100%;
+    margin-top: 2%;
+}
 .content {
-	margin-top: 50px;
+    height: 100%;
 }
-.undecorated-link:hover {
-	text-decoration: none;
+.an-image {
+    height: 100%;
 }
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-	display: none !important;
-}
-.ng-invalid.ng-dirty {
-	border-color: #FA787E;
-}
-.ng-valid.ng-dirty {
-	border-color: #78FA89;
+.an-image img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
 }
