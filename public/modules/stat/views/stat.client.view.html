@@ -1,0 +1,9 @@
+<section>
+  <tabset justified="true" type="pills">
+    <tab ng-repeat="tab in stat.tabs" active="tab.active">
+      <tab-heading>
+	{{tab.title}}
+      </tab-heading>
+      <div {{tab.name}}></div>
+    </tab>
+</section>

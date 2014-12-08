@@ -2,7 +2,7 @@
 
 angular.module('customer')
 .controller('CustomerController',
-            function CustomerController ($rootScope, $scope, $modal, Server, Encode, Decode) {
+            function CustomerController ($rootScope, $scope, $state, $modal, Server, Encode, Decode) {
               
               // TODO: load details, balance, status
               this.customer = {};
@@ -31,7 +31,9 @@ angular.module('customer')
 
               this.isCompleted = this.customer.email !== '' && this.customer.password !== '';
 
-              
+              if(this.isCompleted) {
+                $state.go('home.customer.stat');
+              }
 
               // This allow to complete one's info.
               this.complete = function() {
@@ -42,10 +44,7 @@ angular.module('customer')
                       message: '',
                       email: '',
                       password1: '',
-                      password2: '',
-                      passwdValidity: function() {
-                        return
-                      }
+                      password2: ''
                     };
                     $scope.submit = function() {
                       if($scope.register.password1 !== $scope.register.password2 || $scope.register.password1.length < 6) {
@@ -58,7 +57,7 @@ angular.module('customer')
                         $scope.form.password2.$setValidity('2validity', true);
                         
                         if(!$scope.form.email.$valid){
-                          $scope.register.message = 'Invalid email. Please note that a confirmation will be sent to you.'
+                          $scope.register.message = 'Invalid email. Please note that a confirmation will be sent to you.';
                         }
                         else {
                           $scope.$close($scope.register);
