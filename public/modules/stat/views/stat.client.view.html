@@ -1,10 +1,44 @@
 <section>
   <tabset justified="true" type="pills">
-    <tab ng-repeat="tab in stat.tabs" active="tab.active">
+
+    <tab>
       <tab-heading>
-	{{tab.title}}
+        History of purchases
       </tab-heading>
-      <div {{tab.name}} data="stat.data">
-      </div>
+      <div drink-history data="stat.data.purchases"></div>
     </tab>
+
+    <tab>
+      <tab-heading>
+	History of deposits
+      </tab-heading>
+      <div entry-history data="stat.data.deposits"></div>
+    </tab>
+
+    <tab>
+      <tab-heading>
+	Most recurrent purchases
+      </tab-heading>
+      <div fav-drink-number data="stat.data"></div>
+    </tab>
+
+    <tab>
+      <tab-heading>Most valuable purchases</tab-heading>
+      <div fav-drink-price data="stat.data"></div>
+    </tab>
+
+    <tab>
+      <tab-heading>
+	Money spent each month
+      </tab-heading>
+      <div entry-over-month data="stat.data"></div>
+    </tab>
+
+    <tab>
+      <tab-heading>
+	Account balance over time
+      </tab-heading>
+      <div balance-over-time data="stat.data"></div>
+    </tab>
+    
 </section>
