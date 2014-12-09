@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stat', ['customer'])
+angular.module('stat', ['customer', 'angularCharts'])
 .controller('StatController',
             function StatController ($scope, $stateParams, Server, Decode) {
 

@@ -6,3 +6,13 @@ tab-heading {
     height: 580px;
     overflow-y: scroll;
 }
+
+.chart {
+    width: 500px;
+    height: 500px;
+}
+
+#chart {
+    width: 500px;
+    height: 500px;
+}
