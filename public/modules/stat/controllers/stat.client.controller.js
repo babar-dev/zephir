@@ -18,7 +18,7 @@ angular.module('stat', ['customer'])
                   title: 'Most recurrent purchases'
                 },
                 {
-                  name: 'fav-drink-number',
+                  name: 'fav-drink-price',
                   title: 'Most valuable purchases'
                 },
                 {
@@ -40,20 +40,27 @@ angular.module('stat', ['customer'])
               ];
 
               var id = $stateParams.id;
-              
-              this.purchases = [];
-              this.entries = [];
+
+              this.data = {
+                purchases: [],
+                deposits: []
+              };
+
+              var chrono = function (self) {
+                return Array.prototype.sort.call(self, function(a, b) {
+                   return a.date - b.date;
+                });
+              };
+
               Server
               .get('entry', id, 'customer_history')
               .then(function(promised){
-                console.log(promised.data);
+                $scope.stat.data.deposits = chrono(promised.data);
               });
               Server
               .get('sell', id, 'customer_history')
               .then(function(promised){
-                console.log(Decode.drinks(promised.data));
+                $scope.stat.data.purchases = chrono(Decode.drinks(promised.data));
               });
-
-
 
 	    });
