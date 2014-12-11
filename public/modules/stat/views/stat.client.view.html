@@ -1,44 +1,39 @@
 <section>
-  <tabset justified="true" type="pills">
 
-    <tab>
-      <tab-heading>
-        History of purchases
-      </tab-heading>
-      <div drink-history data="stat.data.purchases"></div>
-    </tab>
+  <ul class="nav nav-pills">
+    <li ng-repeat="tab in stat.tabs"
+	role="presentation"
+	ng-click="stat.active = tab.name"
+	ng-class="stat.active === tab.name ? 'active' : ''">
+      <a>{{tab.title}}</a>
+    </li>
+  </ul>
 
-    <tab>
-      <tab-heading>
-	History of deposits
-      </tab-heading>
-      <div entry-history data="stat.data.deposits"></div>
-    </tab>
-
-    <tab>
-      <tab-heading>
-	Most recurrent purchases
-      </tab-heading>
-      <div fav-drink-number data="stat.data.purchases"></div>
-    </tab>
-
-    <tab>
-      <tab-heading>Most valuable purchases</tab-heading>
-      <div fav-drink-price data="stat.data.purchases"></div>
-    </tab>
-
-    <tab>
-      <tab-heading>
-	Money spent each month
-      </tab-heading>
-      <div entry-over-month data="stat.data"></div>
-    </tab>
-
-    <tab>
-      <tab-heading>
-	Account balance over time
-      </tab-heading>
-      <div balance-over-time data="stat.data"></div>
-    </tab>
-    
+  
+  <!-- Compelled to repeat myself here because of the directive. -->
+  
+  <div
+     ng-show="stat.active==='drink-history'" drink-history
+     data="stat.data.purchases"></div>
+  
+  <div
+     ng-show="stat.active==='entry-history'" entry-history
+     data="stat.data.deposits"></div>
+  
+  <div
+     ng-show="stat.active==='fav-drink-number'" fav-drink-number
+     data="stat.data.purchases"></div>
+  
+  <div
+     ng-show="stat.active==='fav-drink-price'" fav-drink-price
+     data="stat.data.purchases"></div>
+  
+  <div
+     ng-show="stat.active==='entry-over-month'" entry-over-month
+     data="stat.data"></div>
+  
+  <div
+     ng-show="stat.active==='balance-over-time'" balance-over-time
+     data="stat.data"></div>
+  
 </section>

@@ -1,34 +1,6 @@
-HELLO {{fdn.who}}
 <div
-   ng-show="chartActive"
-   style="width: 500px; height: 500px">
-  <div
-     ng-if="chartActive"
-     data-ac-chart="'bar'" 
-     data-ac-data="ddata" 
-     data-ac-config="dconfig" 
-     class="chart"
-     id="chart"
-     style="width: 500px; height: 500px">
-  </div>
-
-<!--
-  <div 
-     ac-chart="'bar'" 
-     ac-data="ddata" 
-     ac-config="dconfig" 
-     class="chart"
-     style="width: 500px; height: 500px">
-  </div>
-
-
-  <div
-     ac-chart="pie"
-     ac-data="fdn.data"
-     ac-config="fdn.config"
-     id="fdn-chart"
-     class="chart"
-     style="width: 500px; height: 500px">
-  </div>
-  -->
+   ac-chart="'pie'"
+   ac-data="fdn.data"
+   ac-config="fdn.config"
+   class="chart">
 </div>

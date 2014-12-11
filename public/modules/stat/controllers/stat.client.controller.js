@@ -7,6 +7,35 @@ angular.module('stat', ['customer', 'angularCharts'])
               
               var id = $stateParams.id;
 
+              this.tabs = [
+                {
+                  name: 'drink-history',
+                  title: 'History of purchases'
+                },
+                {
+                  name: 'entry-history',
+                  title: 'History of deposits'
+                },
+                {
+                  name: 'fav-drink-number',
+                  title: 'Most recurrent purchases'
+                },
+                {
+                  name: 'fav-drink-price',
+                  title: 'Most valuable purchases'
+                },
+                {
+                  name: 'entry-over-month',
+                  title: 'Money spent each month'
+                },
+                {
+                  name: 'balance-over-time',
+                  title: 'Account balance over time'
+                }
+              ];
+              
+              this.active = 'drink-history';
+              
               this.data = {
                 purchases: [],
                 deposits: []
@@ -14,8 +43,8 @@ angular.module('stat', ['customer', 'angularCharts'])
 
               var chrono = function (self) {
                 return Array.prototype.sort.call(self, function(a, b) {
-                   return b.date - a.date;
-                });
+                         return b.date - a.date;
+                       });
               };
 
               Server

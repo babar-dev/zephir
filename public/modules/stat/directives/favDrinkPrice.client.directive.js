@@ -1,5 +1,20 @@
 'use strict';
 
+var acData = {
+  series: ["Sales"],
+  data: [
+    {
+      x: "Printers",
+      y: [60],
+      tooltip: "This is a tooltip"
+    },
+    {
+      x: "Computers",
+      y: [40],
+      tooltip: "This is a tooltip"
+    }]
+};
+
 var sampleData = [
   {
     name: 'banana',
@@ -17,13 +32,13 @@ var sampleData = [
 
 
 angular.module('stat')
-.directive('favDrinkNumber', function() {
+.directive('favDrinkPrice', function() {
   return {
-    templateUrl: 'modules/stat/directives/fav-drink-number.html',
+    templateUrl: 'modules/stat/directives/fav-drink-price.html',
     scope: {
       data: '=data'
     },
-    controllerAs: 'fdn',
+    controllerAs: 'fdp',
     controller: function($scope) {
 
       /*
