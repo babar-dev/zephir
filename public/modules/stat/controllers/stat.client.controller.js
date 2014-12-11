@@ -22,7 +22,7 @@ angular.module('stat', ['customer', 'angularCharts'])
                 },
                 {
                   name: 'fav-drink-price',
-                  title: 'Most valuable purchases'
+                  title: 'Most expensive purchases'
                 },
                 {
                   name: 'entry-over-month',

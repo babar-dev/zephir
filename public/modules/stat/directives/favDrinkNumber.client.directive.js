@@ -40,7 +40,7 @@ angular.module('stat')
         mouseout: function() {},
         click: function() {},
         legend: {
-          display: false,
+          display: true,
           position: 'right',
           htmlEnabled: false
         },

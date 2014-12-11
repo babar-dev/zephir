@@ -18,15 +18,23 @@ var acData = {
 var sampleData = [
   {
     name: 'banana',
-    quantity: 3
+    quantity: 3,
+    price: 1
   },
   {
     name: 'pineapple',
-    quantity: 1
+    quantity: 1,
+    price: 2
   },
   {
     name: 'watermelon',
-    quantity: 1
+    quantity: 1,
+    price: 3
+  },
+  {
+    name: 'pineapple',
+    quantity: 1,
+    price: 2
   }
 ];
 
@@ -48,14 +56,14 @@ angular.module('stat')
       $scope.data = sampleData;
 
       this.config = {
-        title: 'Chart of the most purchased items',
+        title: 'Chart of the repartition of all the money spent',
         tooltips: true,
         labels: true,
         mouseover: function() {},
         mouseout: function() {},
         click: function() {},
         legend: {
-          display: false,
+          display: true,
           position: 'right',
           htmlEnabled: false
         },
@@ -73,22 +81,22 @@ angular.module('stat')
         data: []
       };
 
-      //we oughta calculate the quantity of every purchase
-      var quantities = {};
+      //we oughta calculate how much money was spent in each item
+      var funds = {};
       $scope.data.forEach(function(val, ind, arr) {
-        if(quantities[val.name]) {
-          quantities[val.name] += val.quantity;
+        if(funds[val.name]) {
+          funds[val.name] += val.price;
         }
         else {
-          quantities[val.name] = val.quantity;
+          funds[val.name] = val.price;
         }
       });
       //then we pass it as data
-      for(var quantity in quantities) {
+      for(var fund in funds) {
         this.data.data.push({
-          x: quantity,
-          y: [quantities[quantity]],
-          tooltip: quantity
+          x: fund,
+          y: [funds[fund]],
+          tooltip: fund
         });
       }
 
