@@ -1,17 +1,14 @@
 .container-fluid {
-    height: 100%;
-    width: 100%;
 }
 
-search-bar {
-    height: 10%;
+.search-row {
+    
+}
+.search-bar {
 }
 .search-input {
-    width: 100%;
-    margin-top: 2%;
 }
-.content {
-    height: 100%;
+.main {
 }
 .an-image {
     height: 100%;

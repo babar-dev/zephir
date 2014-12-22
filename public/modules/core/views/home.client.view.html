@@ -1,8 +1,8 @@
 <section>
-  <div class="row search-bar">
+  <div class="row search-row">
     <!-- some space around the search bar -->
     <div class="col-md-2 col-xs-1"></div>
-    <div class="col-md-8 col-xs-10">
+    <div class="col-md-8 col-xs-10 search-bar">
       <ui-select
 	 theme="bootstrap"
 	 ng-model="home.selected"
@@ -18,16 +18,16 @@
 	  <div ng-bind="customer.name"></div>
 	</ui-select-choices>
       </ui-select>
-      
     </div>
     <!-- some space around the search bar -->
     <div class="col-md-2 col-xs-1"></div>
   </div>
   <!-- This is the info part once someone's selected -->
-  <div class="row content" ui-view>
+  <div class="row main" ui-view>
     <div
        class="visible-md-* visible-lg-* an-image"
        ng-show="state == 'home'">
       <img src="modules/core/img/zephir.jpg"></img>
     </div>
+  </div>
 </section>
