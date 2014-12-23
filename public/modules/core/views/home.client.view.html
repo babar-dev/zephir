@@ -1,8 +1,6 @@
 <section>
   <div class="row search-row">
-    <!-- some space around the search bar -->
-    <div class="col-md-2 col-xs-1"></div>
-    <div class="col-md-8 col-xs-10 search-bar">
+    <div class="col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1 search-bar">
       <ui-select
 	 theme="bootstrap"
 	 ng-model="home.selected"
@@ -19,8 +17,7 @@
 	</ui-select-choices>
       </ui-select>
     </div>
-    <!-- some space around the search bar -->
-    <div class="col-md-2 col-xs-1"></div>
+    
   </div>
   <!-- This is the info part once someone's selected -->
   <div class="row main" ui-view>

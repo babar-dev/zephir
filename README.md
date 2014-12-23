@@ -6,11 +6,8 @@ Allow a customer to :
 - Protect his datas with a password.
 
 # Colors
-Alas, we refine the babar pink.
-- pink: f77eb4
-- grey: afbbc5
-- blue: 47acff
-- yellow: ffc61a
-
+- pink: EE999B
+- blue: 5E9290
+- green: C7E190
 
 ![Zephir](https://github.com/babar-dev/zephir/blob/master/public/modules/core/img/zephir.jpg)
