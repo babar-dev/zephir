@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/babar-dev/zephir.svg?branch=rendering)](https://travis-ci.org/babar-dev/zephir)
+
 # Goals
 Allow a customer to :
 - Provide his email address;
