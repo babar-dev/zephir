@@ -91,19 +91,19 @@ angular.module('stat')
       $scope.data.forEach(function(val, ind, arr) {
         var date = new Date(val.time);
         //TODO: study Date object to make the spent object
-        if(funds[val.name]) {
-          funds[val.name] += val.price;
+        if(spent[val.name]) {
+          spent[val.name] += val.price;
         }
         else {
-          funds[val.name] = val.price;
+          spent[val.name] = val.price;
         }
       });
       //then we pass it as data
-      for(var fund in funds) {
+      for(var money in spent) {
         this.data.data.push({
-          x: fund,
-          y: [funds[fund]],
-          tooltip: fund
+          x: money,
+          y: [spent[money]],
+          tooltip: money
         });
       }
 
