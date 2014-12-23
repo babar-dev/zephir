@@ -7,56 +7,52 @@ angular.module('stat')
     controllerAs: 'bot',
     controller: function($scope) {
 
-      this.config = {
-        title: 'Chart of the evolution of the balance over time (in €)',
-        tooltips: true,
-        labels: true,
-        mouseover: function() {},
-        mouseout: function() {},
-        click: function() {},
-        legend: {
-          display: true,
-          position: 'right',
-          htmlEnabled: false
-        },
-        colors: [],
-        innerRadius: 0, // Only on pie Charts
-        lineLegend: 'lineEnd', // Only on line Charts
-        lineCurveType: 'cardinal', // change this as per d3 guidelines to avoid smoothline
-        isAnimate: true, // run animations while rendering chart
-        yAxisTickFormat: 's', //refer tickFormats in d3 to edit this value
-        xAxisMaxTicks: 7 // Optional: maximum number of X axis ticks to show if data points exceed this number
-      };
 
+      this.config = $scope.stat.config;
+      this.config.title = 'Chart of the evolution of the balance over time (in €)';
+      
       this.data = {
         series: ['Balance'],
         data: []
       };
-/*
+
+      var getDateString = function(time) {
+        var date = new Date(parseInt(time, 10));
+        var datestring = "";
+        datestring += (date.getDate().toString().length === 1 ? '0' : '') + date.getDate().toString() + '/';
+        datestring += ((date.getMonth() + 1).toString().length === 1 ? '0' : '') + (date.getMonth() + 1).toString() + '/';
+        datestring += date.getFullYear().toString();
+        return datestring;
+      };
+
       $q.all([$scope.stat.data.deposits, $scope.stat.data.purchases]).then(function(promised) {
-        console.log(promised);
-        var data = promised[0].concat(promised[1]);
         var dates = {};
-        data.forEach(function(val, ind, arr) {
-          var date = new Date(parseInt(val.date, 10));
-          var datestring = "";
-          datestring += (date.getDay().toString().length === 1 ? '0' : '') + date.getDay().toString() + '/';
-          datestring += (date.getMonth().toString().length === 1 ? '0' : '') + date.getMonth().toString() + '/';
-          datestring += date.getFullYear().toString();
-          var info;
-          if(val.amount) {
-            info = parseFloat(val.amount, 10);
-          }
-          else {
-            info = parseFloat(val.price, 10) * parseFloat(val.quantity, 10);
-          }
-          if(dates[datestring]) {
-            dates[datestring] += info;
-          }
-          else {
-            dates[datestring] = info;
-          }
+        var balance = 0;
+        // concat deposits and purchases
+        promised[0].concat(promised[1])
+        // sort them by date
+        .sort(function(a, b) {
+          return a.date - b.date;
+        })
+        // update the object for current use
+        .map(function(val, ind, arr) {
+          return {
+            datestring: getDateString(val.date),
+            type: val.amount ? 'dep' : 'pur',
+            number: val.amount ? parseFloat(val.amount, 10) : parseFloat(val.price, 10) * parseFloat(val.quantity, 10)
+          };
+        })
+        // increase balance for deposit and decrease for purchase
+        .forEach(function(val, ind, arr) {
+          if(val.type === 'dep')
+            balance += val.number;
+          else
+            balance -= val.number;
+          dates[val.datestring] = balance;
         });
+
+        console.log(dates);
+        
         //then we pass it as data
         for(var op in dates) {
           $scope.bot.data.data.push({
@@ -65,8 +61,7 @@ angular.module('stat')
             tooltip: op
           });
         }
-});
-*/
+      });
     } // \controller
   };
 });

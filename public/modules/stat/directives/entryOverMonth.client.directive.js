@@ -1,49 +1,5 @@
 'use strict';
 
-/*
-var acData = {
-series: ["Sales"],
-data: [
-{
-x: "Printers",
-y: [60],
-tooltip: "This is a tooltip"
-},
-{
-x: "Computers",
-y: [40],
-tooltip: "This is a tooltip"
-}]
-};
- */
-var sampleData = [
-  {
-    name: 'banana',
-    quantity: 3,
-    price: 1,
-    time: 1336736
-  },
-  {
-    name: 'pineapple',
-    quantity: 1,
-    price: 2,
-    time: 32273
-  },
-  {
-    name: 'watermelon',
-    quantity: 1,
-    price: 3,
-    time: 179999
-  },
-  {
-    name: 'pineapple',
-    quantity: 1,
-    price: 2,
-    time: 3029833
-  }
-];
-
-
 angular.module('stat')
 .directive('entryOverMonth', function() {
   return {
@@ -51,27 +7,9 @@ angular.module('stat')
     controllerAs: 'eom',
     controller: function($scope) {
 
-      this.config = {
-        title: 'Chart of the money spent each month (in €)',
-        tooltips: true,
-        labels: true,
-        mouseover: function() {},
-        mouseout: function() {},
-        click: function() {},
-        legend: {
-          display: true,
-          position: 'right',
-          htmlEnabled: false
-        },
-        colors: [],
-        innerRadius: 0, // Only on pie Charts
-        lineLegend: 'lineEnd', // Only on line Charts
-        lineCurveType: 'cardinal', // change this as per d3 guidelines to avoid smoothline
-        isAnimate: true, // run animations while rendering chart
-        yAxisTickFormat: 's', //refer tickFormats in d3 to edit this value
-        xAxisMaxTicks: 7 // Optional: maximum number of X axis ticks to show if data points exceed this number
-      };
-
+      this.config = $scope.stat.config;
+      this.config.title = 'Chart of the money spent each month (in €)';
+      
       this.data = {
         series: ['Money'],
         data: []

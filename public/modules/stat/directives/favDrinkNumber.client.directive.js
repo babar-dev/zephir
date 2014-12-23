@@ -29,27 +29,9 @@ angular.module('stat')
 
       $scope.data = sampleData;
 
-      this.config = {
-        title: 'Chart of the most purchased items (in number)',
-        tooltips: true,
-        labels: true,
-        mouseover: function() {},
-        mouseout: function() {},
-        click: function() {},
-        legend: {
-          display: true,
-          position: 'right',
-          htmlEnabled: false
-        },
-        colors: [],
-        innerRadius: 0, // Only on pie Charts
-        lineLegend: 'lineEnd', // Only on line Charts
-        lineCurveType: 'cardinal', // change this as per d3 guidelines to avoid smoothline
-        isAnimate: true, // run animations while rendering chart
-        yAxisTickFormat: 's', //refer tickFormats in d3 to edit this value
-        xAxisMaxTicks: 7 // Optional: maximum number of X axis ticks to show if data points exceed this number
-      };
-
+      this.config = $scope.stat.config;
+      this.config.title = 'Chart of the most purchased items (in number)';
+      
       this.data = {
         series: ['Purchases'],
         data: []
