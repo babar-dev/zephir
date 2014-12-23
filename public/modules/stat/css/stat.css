@@ -7,7 +7,12 @@ tab-heading {
     overflow-y: scroll;
 }
 
+.stat-chart {
+    padding: 30px;
+}
+
 .chart {
-    width: 500px;
-    height: 500px;
+    margin: auto;
+    width: 600px;
+    height: 600px;
 }

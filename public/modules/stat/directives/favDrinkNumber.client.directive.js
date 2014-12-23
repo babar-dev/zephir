@@ -20,9 +20,6 @@ angular.module('stat')
 .directive('favDrinkNumber', function() {
   return {
     templateUrl: 'modules/stat/directives/fav-drink-number.html',
-    scope: {
-      data: '=data'
-    },
     controllerAs: 'fdn',
     controller: function($scope) {
 
@@ -33,7 +30,7 @@ angular.module('stat')
       $scope.data = sampleData;
 
       this.config = {
-        title: 'Chart of the most purchased items',
+        title: 'Chart of the most purchased items (in number)',
         tooltips: true,
         labels: true,
         mouseover: function() {},

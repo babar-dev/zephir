@@ -43,9 +43,6 @@ angular.module('stat')
 .directive('favDrinkPrice', function() {
   return {
     templateUrl: 'modules/stat/directives/fav-drink-price.html',
-    scope: {
-      data: '=data'
-    },
     controllerAs: 'fdp',
     controller: function($scope) {
 
@@ -56,7 +53,7 @@ angular.module('stat')
       $scope.data = sampleData;
 
       this.config = {
-        title: 'Chart of the repartition of all the money spent',
+        title: 'Chart of the repartition of all the money spent (in €)',
         tooltips: true,
         labels: true,
         mouseover: function() {},
@@ -85,10 +82,10 @@ angular.module('stat')
       var funds = {};
       $scope.data.forEach(function(val, ind, arr) {
         if(funds[val.name]) {
-          funds[val.name] += val.price;
+          funds[val.name] += val.price * val.quantity;
         }
         else {
-          funds[val.name] = val.price;
+          funds[val.name] = val.price * val.quantity;
         }
       });
       //then we pass it as data

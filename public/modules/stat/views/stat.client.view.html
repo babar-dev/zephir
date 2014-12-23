@@ -9,31 +9,34 @@
     </li>
   </ul>
 
-  
-  <!-- Compelled to repeat myself here because of the directive. -->
-  
-  <div
-     ng-show="stat.active==='drink-history'" drink-history
-     data="stat.data.purchases"></div>
-  
-  <div
-     ng-show="stat.active==='entry-history'" entry-history
-     data="stat.data.deposits"></div>
-  
-  <div
-     ng-show="stat.active==='fav-drink-number'" fav-drink-number
-     data="stat.data.purchases"></div>
-  
-  <div
-     ng-show="stat.active==='fav-drink-price'" fav-drink-price
-     data="stat.data.purchases"></div>
-  
-  <div
-     ng-show="stat.active==='entry-over-month'" entry-over-month
-     data="stat.data"></div>
-  
-  <div
-     ng-show="stat.active==='balance-over-time'" balance-over-time
-     data="stat.data"></div>
+  <div class="stat-chart">
+    
+    <!-- Compelled to repeat myself here because of the directive. -->
+    
+    <div
+       ng-show="stat.active==='drink-history'" drink-history>
+    </div>
+    
+    <div
+       ng-show="stat.active==='entry-history'" entry-history>
+    </div>
+    
+    <div
+       ng-show="stat.active==='fav-drink-number'" fav-drink-number>
+    </div>
+    
+    <div
+       ng-show="stat.active==='fav-drink-price'" fav-drink-price>
+    </div>
+    
+    <div
+       ng-show="stat.active==='entry-over-month'" entry-over-month>
+    </div>
+    
+    <div
+       ng-show="stat.active==='balance-over-time'" balance-over-time>
+    </div>
+
+  </div>
   
 </section>

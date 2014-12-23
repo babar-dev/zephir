@@ -1,8 +1,10 @@
-.container {
+body {
+    background-color: #703804;
 }
 
 .search-row {
     
+    padding: 2%;
 }
 .search-bar {
 }

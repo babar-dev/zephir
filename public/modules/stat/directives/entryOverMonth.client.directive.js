@@ -2,20 +2,20 @@
 
 /*
 var acData = {
-  series: ["Sales"],
-  data: [
-    {
-      x: "Printers",
-      y: [60],
-      tooltip: "This is a tooltip"
-    },
-    {
-      x: "Computers",
-      y: [40],
-      tooltip: "This is a tooltip"
-    }]
+series: ["Sales"],
+data: [
+{
+x: "Printers",
+y: [60],
+tooltip: "This is a tooltip"
+},
+{
+x: "Computers",
+y: [40],
+tooltip: "This is a tooltip"
+}]
 };
-*/
+ */
 var sampleData = [
   {
     name: 'banana',
@@ -48,20 +48,11 @@ angular.module('stat')
 .directive('entryOverMonth', function() {
   return {
     templateUrl: 'modules/stat/directives/entry-over-month.html',
-    scope: {
-      data: '=data'
-    },
     controllerAs: 'eom',
     controller: function($scope) {
 
-      /*
-       * FOR TEST PURPOSES
-       */
-
-      $scope.data = sampleData;
-
       this.config = {
-        title: 'Chart of the repartition of all the money spent',
+        title: 'Chart of the money spent each month (in €)',
         tooltips: true,
         labels: true,
         mouseover: function() {},
@@ -86,27 +77,44 @@ angular.module('stat')
         data: []
       };
 
-      //we oughta calculate how much money was spent each month
-      var spent = {};
-      $scope.data.forEach(function(val, ind, arr) {
-        var date = new Date(val.time);
-        //TODO: study Date object to make the spent object
-        if(spent[val.name]) {
-          spent[val.name] += val.price;
-        }
-        else {
-          spent[val.name] = val.price;
+      $scope.stat.data.deposits.then(function(promised) {
+
+        //we oughta calculate how much money was spent each month
+        var spent = {};
+        promised.forEach(function(val, ind, arr) {
+          var date = new Date(parseInt(val.date, 10));
+          var datestring = '';
+          switch(date.getMonth()) {
+            case 0: datestring += 'January'; break;
+            case 1: datestring += 'February'; break;
+            case 2: datestring += 'March'; break;
+            case 3: datestring += 'April'; break;
+            case 4: datestring += 'May'; break;
+            case 5: datestring += 'June'; break;
+            case 6: datestring += 'July'; break;
+            case 7: datestring += 'August'; break;
+            case 8: datestring += 'September'; break;
+            case 9: datestring += 'October'; break;
+            case 10: datestring += 'November'; break;
+            case 11: datestring += 'December'; break;
+          }
+          datestring += ' ' + date.getFullYear().toString();
+          if(spent[datestring]) {
+            spent[datestring] += parseFloat(val.amount, 10);
+          }
+          else {
+            spent[datestring] = parseFloat(val.amount, 10);
+          }
+        });
+        //then we pass it as data
+        for(var money in spent) {
+          $scope.eom.data.data.push({
+            x: money,
+            y: [spent[money]],
+            tooltip: money
+          });
         }
       });
-      //then we pass it as data
-      for(var money in spent) {
-        this.data.data.push({
-          x: money,
-          y: [spent[money]],
-          tooltip: money
-        });
-      }
-
     } // \controller
   };
 });
