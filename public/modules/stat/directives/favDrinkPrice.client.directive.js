@@ -51,8 +51,6 @@ angular.module('stat')
        */
 
       $scope.data = sampleData;
-
-
       
       this.config = $scope.stat.config;
       this.config.title = 'Chart of the repartition of all the money spent (in €)';
