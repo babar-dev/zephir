@@ -52,7 +52,7 @@ angular.module('stat')
         this.data.data.push({
           x: quantity,
           y: [quantities[quantity]],
-          tooltip: quantity
+          tooltip: quantities[quantity].toString()
         });
       }
 

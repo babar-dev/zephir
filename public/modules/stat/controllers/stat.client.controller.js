@@ -39,7 +39,7 @@ angular.module('stat', ['customer', 'angularCharts'])
               this.config = {
                 title: '',
                 tooltips: true,
-                labels: true,
+                labels: false,
                 mouseover: function() {},
                 mouseout: function() {},
                 click: function() {},
@@ -48,9 +48,9 @@ angular.module('stat', ['customer', 'angularCharts'])
                   position: 'right',
                   htmlEnabled: false
                 },
-                colors: ['#F5E682', '#703804', '#D41C16', '#F1F1F3'],
+                colors: ['#F5E682', '#D41C16', '#703804', '#F1F1F3'],
                 innerRadius: 0, // Only on pie Charts
-                lineLegend: 'lineEnd', // Only on line Charts
+                lineLegend: 'traditional', // Only on line Charts
                 lineCurveType: 'cardinal', // change this as per d3 guidelines to avoid smoothline
                 isAnimate: true, // run animations while rendering chart
                 yAxisTickFormat: 's', //refer tickFormats in d3 to edit this value

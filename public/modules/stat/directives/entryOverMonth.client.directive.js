@@ -49,7 +49,7 @@ angular.module('stat')
           $scope.eom.data.data.push({
             x: money,
             y: [spent[money]],
-            tooltip: money
+            tooltip: spent[money].toString()
           });
         }
       });

@@ -75,7 +75,7 @@ angular.module('stat')
         this.data.data.push({
           x: fund,
           y: [funds[fund]],
-          tooltip: fund
+          tooltip: funds[fund].toString()
         });
       }
 
