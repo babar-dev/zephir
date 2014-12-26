@@ -20,7 +20,7 @@ angular.module('stat').directive('balanceOverTime', function($q) {
 
       var getDateString = function(time) {
 	var date = new Date(parseInt(time, 10));
-	var datestring = "";
+	var datestring = '';
 	datestring += (date.getDate().toString().length === 1 ? '0' : '') + date.getDate().toString() + '/';
 	datestring += ((date.getMonth() + 1).toString().length === 1 ? '0' : '') + (date.getMonth() + 1).toString() + '/';
 	datestring += date.getFullYear().toString();
