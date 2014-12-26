@@ -57,6 +57,23 @@ angular.module('stat', ['customer', 'angularCharts'])
                 xAxisMaxTicks: 7 // Optional: maximum number of X axis ticks to show if data points exceed this number
               };
 
+              this.formatDate = function(time) {
+                var d = new Date(parseInt(time, 10));
+                var day = d.getDate().toString();
+                var month = (d.getMonth() + 1).toString();
+                day = day.length === 1 ? '0' + day : day;
+                month = month.length === 1 ? '0' + month : month;
+                var year = d.getFullYear().toString();
+                var hour = d.getHours().toString();
+                var minute = d.getMinutes().toString();
+                var second = d.getSeconds().toString();
+                hour = hour.length === 1 ? '0' + hour : hour;
+                minute = minute.length === 1 ? '0' + minute : minute;
+                second = second.length === 1 ? '0' + second : second;
+                var date_time = hour + ':' + minute + ':' + second;
+                return day + '/' + month + '/' + year + ' ' + date_time;
+              };
+
               var chrono = function (self) {
                 return Array.prototype.sort.call(self, function(a, b) {
                          return a.date - b.date;

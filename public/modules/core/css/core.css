@@ -1,16 +1,15 @@
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+    cursor: pointer;
+}
 body {
+    font-family: 'Pontano Sans', sans-serif;
     background-color: #703804;
 }
-
 .search-row {
-    
     padding: 2%;
-}
-.search-bar {
-}
-.search-input {
-}
-.main {
 }
 .an-image {
     height: 100%;

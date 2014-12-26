@@ -1,8 +1,8 @@
 <span class="stat-caption">{{dh.caption}}</span>
 <div class="history">
     <accordion close-others="true">
-        <accordion-group ng-repeat="purchase in data" heading="{{purchase.name}}">
-            <strong>Date: </strong>{{dh.formatDate(purchase.date)}}
+        <accordion-group ng-repeat="purchase in dh.data" heading="{{purchase.name}}">
+            <strong>Date: </strong>{{stat.formatDate(purchase.date)}}
             <br>
             <strong>Cost: </strong>{{purchase.price}}€
             <br>
