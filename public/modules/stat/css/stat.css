@@ -1,18 +1,20 @@
 tab-heading {
     font-weight: bold;
 }
-
 .history {
     height: 580px;
     overflow-y: scroll;
 }
-
 .stat-chart {
     padding: 30px;
+    padding-top: 10px;
 }
-
 .chart {
     margin: auto;
     width: 1000px;
     height: 600px;
+}
+.stat-caption {
+    font-weight: bold;
+    margin: 10px;
 }

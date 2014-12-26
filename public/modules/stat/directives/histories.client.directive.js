@@ -1,6 +1,7 @@
 'use strict';
 
 function HistoryController ($scope) {
+  $scope.caption = 'History';
   this.formatDate = function(time) {
     var d = new Date(parseInt(time, 10));
     var day = d.getDate().toString();

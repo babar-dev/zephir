@@ -5,9 +5,13 @@ angular.module('stat').directive('balanceOverTime', function($q) {
     templateUrl: 'modules/stat/directives/balance-over-time.html',
     controllerAs: 'bot',
     controller: function($scope) {
+
+      $scope.debug = function() {
+        console.log($scope.fdn.config);
+      };
       
       this.config = $scope.stat.config;
-      this.config.title = 'Chart of the evolution of the balance over time (in €)';
+      this.caption = 'Chart of the evolution of the balance over time (in €)';
       
       this.data = {
 	series: ['Balance', 'Zero'],

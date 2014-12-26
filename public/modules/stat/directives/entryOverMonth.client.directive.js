@@ -8,7 +8,7 @@ angular.module('stat')
     controller: function($scope) {
 
       this.config = $scope.stat.config;
-      this.config.title = 'Chart of the money spent each month (in €)';
+      this.caption = 'Chart of the money spent each month (in €)';      
       
       this.data = {
         series: ['Money'],

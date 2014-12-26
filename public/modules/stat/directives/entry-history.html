@@ -1,10 +1,10 @@
+<span class="stat-caption">{{eh.caption}}</span>
 <div class="history">
-  <accordion close-others="true">
-    <accordion-group
-       ng-repeat="deposit in data"
-       heading="{{deposit.amount}} €">
-      <strong>Date: </strong>{{eh.formatDate(deposit.date)}}<br>
-      <!-- The deposit handler's name could appear here. -->
-    </accordion-group>
-  </accordion>
+    <accordion close-others="true">
+        <accordion-group ng-repeat="deposit in data" heading="{{deposit.amount}} €">
+            <strong>Date: </strong>{{eh.formatDate(deposit.date)}}
+            <br>
+            <!-- The deposit handler's name could appear here. -->
+        </accordion-group>
+    </accordion>
 </div>
